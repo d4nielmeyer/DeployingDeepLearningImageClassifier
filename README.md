@@ -95,8 +95,6 @@ heroku container:login
 
 Replace `APP_NAME` with something unique
 ```
-
-
 APP_NAME="manning-deploy-imagenet"
 heroku create $APP_NAME
 
