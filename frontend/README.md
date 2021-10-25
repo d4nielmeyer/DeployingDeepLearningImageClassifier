@@ -5,7 +5,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 With the command 
 ```
 npx create-react-app my-app --template typescript
-
 ```
 
 
