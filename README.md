@@ -23,18 +23,14 @@ This project is about creating an application that will take a photo of a food i
 
 ## Overview 
 
-The following lines illustrate how to do TensorFlow browser based and server side inference.
+The following lines illustrate how to do TensorFlow browser-based and server-side inference.
 
-[Backend](backend), contains the server side inference code written in Python and served with FastApi.
-[Frontend](frontend), comprises the browser based inference code written in Typescript / React 
+[Backend](backend), contains the server-side inference code written in Python and served with FastApi.
+[Frontend](frontend), comprises the browser-based inference code written in Typescript / React 
 
-The TensorFlow artifacts should be served [here](backend/artifacts).
-A sample artifact can be found in the repo [releases](https://github.com/reshamas/deploying-web-app/releases/tag/1.0.0-tfjs) 
+The TensorFlow artifacts can be found [here](backend/assets).
 
 ## Demo 
-
-Server Side Inference : [Heroku](https://manning-deploy-imagenet.herokuapp.com/)
-Browse Based Inference: [Github Pages](https://reshamas.github.io/deploying-web-app/)
 
 
 ![Demo](assets/demo.gif)
@@ -45,26 +41,25 @@ Browse Based Inference: [Github Pages](https://reshamas.github.io/deploying-web-
 
 ## Converting TensorFlow model
 
-It is strongly recommended to create a separate environment for `tesnorflowjs`
+It is strongly recommended to create a separate environment for `tensorflowjs`
 
 Installing tensorflowjs 
 ``` 
 pip install tensorflowjs==2.3.0
 ```
 
-Converting keras model located at `artifacts/model_tf_keras.h5` and saving to `artifacts/model_tfjs`
-The `99999999` indicates that the model file should be split to 100 MB partitions.
+Converting keras model located at `backend/assets/model_tf.h5` and saving to `backend/assets/model_tfjs`:
 
-The `quantize_float16=*`  decrease the default 32-bit precision to 16-bit precision which will reduce the model file size by half 
+- Model shards: The model file is large; by specifying weight_shard_size_bytes of 50,000,000 bytes the model is brokend down to get one file
+- Inference-speed optimization using GraphModel conversion
+- Inference-speed optimization: Quantization is a post-training technique to reduce the size of models; by using quantization to decrease the default 32-bit precision to 16-bit precision the model file size is reduced by half.
 
 ```
-tensorflowjs_converter \
---input_format=keras \
---output_format=tfjs_graph_model \
---split_weights_by_layer \
---weight_shard_size_bytes=99999999 \ 
---quantize_float16=* \
-artifacts/model_tf_keras.h5 artifacts/model_tfjs
+tensorflowjs_converter model.h5 model_tfjs \
+--input_format keras \
+--output_format tfjs_graph_model \
+--weight_shard_size_bytes 50000000 \
+--quantize_float16
 
 ```
 
