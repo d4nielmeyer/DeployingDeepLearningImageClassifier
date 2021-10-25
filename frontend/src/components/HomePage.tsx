@@ -205,13 +205,13 @@ Browser-side inference makes an initial call to /assets/model_tfjs/model.json to
                 <div className={"mb-5"} id="prediction-container">
                     <Row>
                         <Col>
-                            <h2> Server Side Inference</h2>
+                            <h2> Server-side Inference</h2>
                             <p> Predictions</p>
                             {this.renderPredictions(this.state.serverResponse)}
                         </Col>
 
                         <Col>
-                            <h2> Client Side Inference</h2>
+                            <h2> Client-side Inference</h2>
                             <p> Predictions</p>
                             {this.renderPredictions(this.state.browserResponse)}
                         </Col>
