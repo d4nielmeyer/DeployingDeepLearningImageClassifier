@@ -19,7 +19,7 @@ about:
 code: https://github.com/reshamas/deploying-web-app.git
 
 image_size: 224
-top_k: 5
+top_k: 3
 
 sampleImages:
   - name: Cheese Cake
