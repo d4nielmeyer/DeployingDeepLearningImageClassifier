@@ -32,6 +32,7 @@ The TensorFlow artifacts can be found [here](backend/assets).
 
 ## Demo 
 
+Hereafter the link for the Herokus application: [Link](https://dlimgclassifier.herokuapp.com/)  
 
 ![Demo](assets/demo.gif)
 
