@@ -83,3 +83,8 @@ The below command command can be used to interactively update  dependencies.
 ```
 yarn upgrade-interactive       
 ```
+
+## Other
+
+If you are interested in a guided exploration of this content, consider Manning's Live project [Deploying a Deep Learning Model on Web and Mobile Applications
+](https://www.manning.com/liveproject/deploying-a-deep-learning-model-on-web-and-mobile-applications)
