@@ -2,7 +2,7 @@
 
 The following lines illustrate how to do TensorFlow browser-based and server-side inference.
 
-[Backend](backend), contains the server-side inference code written in Python and served with FastApi.
+[Backend](backend), contains the server-side inference code written in Python and served with FastAPI.
 [Frontend](frontend), comprises the browser-based inference code written in Typescript / React 
 
 The TensorFlow artifacts can be found [here](backend/assets).
