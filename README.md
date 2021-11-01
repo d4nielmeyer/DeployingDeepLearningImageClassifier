@@ -14,8 +14,8 @@ This project is about creating an application that will take a photo of a food i
 - Colab: Train deep learning models using GPU
 - TensorFlow/Keras: Open source libraries to perform deep learning
 - TensorFlow.js: Use the TensorFlow ecosystem to deploy the deep learning model
-- Expo/ReactNative: Create the web application
-- Heroku/GitHub Pages: Create the web application
+- FastAPI: Create the web application
 - Docker: Deploy the web application
-- Expo: Deploy the mobile application
+- Heroku/GitHub Pages: Deploy the web application
+- Expo/ReactNative: Deploy the mobile application
 - Node.js/NVM: Deploy the mobile application
