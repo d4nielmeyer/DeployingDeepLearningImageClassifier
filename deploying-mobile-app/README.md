@@ -1,9 +1,10 @@
-# deploying-mobile-app
+## Overview 
 
+Analogous to the web app the same TensorFlow.js converted model will be used but now deployed as a mobile app. The output will be a mobile app that can be viewed on a simulator or your smartphone.
 
-## About
+The following lines illustrate how to use tensorflow.js with react native. 
 
-This is a sample template repo showing how to use tensorflow.js with react native. 
+## Demo 
 
 Here is the app in action.
 
@@ -11,12 +12,41 @@ Here is the app in action.
 
 
 
-## Assumptions
+## Setup
 
-In order to use this repo, you need to have a tfjs model. You can get a smaple artifact from this repo's release. 
+### 1. Set up the environment
+The first step is to install the dependencies [yarn](https://classic.yarnpkg.com/en/docs/install#windows-stable) and [expo](https://expo.dev/).
 
-Please download it from this repos's release and place the contents in `assets/model_tfjs`
+- Expo is a free and open-source toolchain built around React Native to help you build cross-platform native iOS and Android projects using JavaScript and React.
+- To develop locally, you will need to install JavaScript tools.
+- JavaScript packages like Expo are installed through yarn.
+- The JavaScript environment that is commonly used for building apps is [Node](https://nodejs.org/en/).
+- To develop locally, you will need Node and Expo installed.
 
+a. Install Node
+Install the latest stable version of [Node](https://nodejs.org/en/).
+
+b. Install yarn
+Install the latest stable version of [yarn](https://classic.yarnpkg.com/en/docs/install#windows-stable).
+
+c. Install Expo
+It can be installed with the command below:
+```
+yarn global add expo-cli
+```
+d. Expo set-up (mobile)
+- Download the Expo Android or iOS app from the respective mobile stores.
+- Login to the Expo app.
+
+e. Expo set-up (computer)
+Login to expo on your computer.
+```
+expo login
+```
+
+### 2. Set up the repo
+
+- Using the following [template](https://github.com/reshamas/deploying-mobile-app) repository, take the converted TensorFlow.js files and copy them to this folder in the template mobile app repo using this directory structure. The classes.json file should also be included in this directory.
 ```
 (base) deploying-mobile-app % tree assets/model_tfjs 
 assets/model_tfjs
@@ -26,65 +56,19 @@ assets/model_tfjs
 └── model.json
 ```
 
-If you want to bring in your own model, please use a command like below to convert a keras h5 artifact.
+### 3. Get the mobile app running 
 
-The below command converts `artifacts/model_tf_keras.h5` to  tfjs and saves it to `artifacts/model_tfjs`.
-
-The model is also 16 bit quanitzed.   
-The model is converted to `tfjs_graph_model` which is an optimized version of the graph.
-The model is broken into 100MB shards.
-
+a. Install project dependencies
 ```
-pip install tensorflowjs==2.3.0
-
-tensorflowjs_converter \
---input_format=keras \
---output_format=tfjs_graph_model \
---split_weights_by_layer \
---weight_shard_size_bytes=99999999 \ 
---quantize_float16=* \
-artifacts/model_tf_keras.h5 artifacts/model_tfjs
+yarn
 ```
 
-
-
-## Running 
-
-
+b. Start the app
 ```
-yarn global add expo-cli    
-
-# you can open iOS, Android, or web from here, or run them directly with the commands below.
-yarn start 
-
-# you can open in android simulator or device driectly
-yarn android 
-
-# you can open in ios simulator or device directly
-yarn ios
-
-
+yarn run start
 ```
+- Open the Expo app on your phone.
+- You will see your project listed under "Recently in Development". Select it.
+- In the mobile app at the top, you will see "Model Loaded". Once a green checkmark appears, you are ready to test an image.
+- You can test an image from your camera roll or take a picture of a new image. After you select an image, your screen will display the prediction and inference timing.
 
-
-
-
-## Future
-
-In the future, it is possible that packages may be out of date.
-
-The below upgrade will upgrade expo and its dependencies
-```
-expo upgrade
-```
-
-The below command command can be used to interactively update  dependencies.
-
-```
-yarn upgrade-interactive       
-```
-
-## Other
-
-If you are interested in a guided exploration of this content, consider Manning's Live project [Deploying a Deep Learning Model on Web and Mobile Applications
-](https://www.manning.com/liveproject/deploying-a-deep-learning-model-on-web-and-mobile-applications)
