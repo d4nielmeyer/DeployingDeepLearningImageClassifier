@@ -46,7 +46,7 @@ tensorflowjs_converter model.h5 model_tfjs \
 
 ### 3. Set up the repo
 
-Using the following [template](https://github.com/reshamas/deploying-web-app) repository, take the converted TensorFlow.js files and copy them to this folder in the template mobile app repo using this directory structure. The classes.json file should also be included in this directory.
+Using the following [template](https://github.com/reshamas/deploying-web-app) repository, take the converted TensorFlow.js files and copy them to this folder in the template using this directory structure. The classes.json file should also be included in this directory.
 
 The structure of your forked repository with the model files will look similar to this after the original and converted model is placed in the directory backend/assets.
 
